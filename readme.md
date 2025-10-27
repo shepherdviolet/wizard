@@ -1,3 +1,14 @@
+# sviolet分支
+
+> 原作者停止维护, 该分支用于修复安全漏洞
+
+## 变更内容
+
+* 20240821: 升级php基础镜像到php:7.4.30-apache, 修复php和apache漏洞; 升级mermaid到9, 更高版本当前nodejs不支持; www-data用户uid改为1000; 适配PHP新版本(调整PHP配置参数和getcomposer.org地址).
+
+<br>
+<br>
+
 # Wizard 开源文档管理系统
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/mylxsw/wizard/total)

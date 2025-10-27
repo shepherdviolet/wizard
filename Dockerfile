@@ -1,4 +1,5 @@
-FROM php:7.3-apache
+FROM php:7.4.30-apache
+RUN groupmod -g 1000 www-data && usermod -u 1000 www-data
 
 WORKDIR /webroot
 ENV APACHE_DOCUMENT_ROOT /webroot/public
@@ -26,9 +27,9 @@ RUN apt-get update && apt-get install -y \
         mercurial \
         --no-install-recommends && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-install -j$(nproc) pcntl exif pdo_mysql zip ldap \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-jpeg=/usr/include --with-freetype=/usr/include/freetype2/ \
     && docker-php-ext-install -j$(nproc) gd
-RUN wget https://mirrors.aliyun.com/composer/composer.phar \
+RUN wget https://getcomposer.org/download/2.3.10/composer.phar \
     && mv composer.phar /usr/bin/composer.phar \
     && chmod +x /usr/bin/composer.phar \
     && ln -s /usr/bin/composer.phar /usr/bin/composer \

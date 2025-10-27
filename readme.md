@@ -6,6 +6,11 @@
 
 * 20240821: 升级php基础镜像到php:7.4.30-apache, 修复php和apache漏洞; 升级mermaid到9, 更高版本当前nodejs不支持; www-data用户uid改为1000; 适配PHP新版本(调整PHP配置参数和getcomposer.org地址).
 
+## 笔记
+
+* 整个项目由 wizard / mysql / es 组成
+* wizard项目依赖 php apache nodejs ...
+
 <br>
 <br>
 
